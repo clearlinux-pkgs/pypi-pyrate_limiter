@@ -4,13 +4,14 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-pyrate_limiter
-Version  : 2.10.0
-Release  : 1
-URL      : https://files.pythonhosted.org/packages/c0/a2/bb73c385e6d68cbe0ebe6ff16c22c96a79194c1298b2942005fcaf3eda9d/pyrate_limiter-2.10.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/c0/a2/bb73c385e6d68cbe0ebe6ff16c22c96a79194c1298b2942005fcaf3eda9d/pyrate_limiter-2.10.0.tar.gz
+Version  : 3.1.0
+Release  : 2
+URL      : https://files.pythonhosted.org/packages/58/dc/793f7a7b33582b5d2cf235c1290bbc084e51d51455ac727cb1e14c21a16e/pyrate_limiter-3.1.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/58/dc/793f7a7b33582b5d2cf235c1290bbc084e51d51455ac727cb1e14c21a16e/pyrate_limiter-3.1.0.tar.gz
 Summary  : Python Rate-Limiter using Leaky-Bucket Algorithm
 Group    : Development/Tools
 License  : MIT
+Requires: pypi-pyrate_limiter-license = %{version}-%{release}
 Requires: pypi-pyrate_limiter-python = %{version}-%{release}
 Requires: pypi-pyrate_limiter-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -20,9 +21,15 @@ BuildRequires : pypi(poetry_core)
 %define debug_package %{nil}
 
 %description
-<img align="left" width="95" height="120" src="docs/_static/logo.png">
-# PyrateLimiter
-The request rate limiter using Leaky-bucket algorithm.
+<img align="left" width="95" height="120" src="https://raw.githubusercontent.com/vutran1710/PyrateLimiter/master/docs/_static/logo.png">
+
+%package license
+Summary: license components for the pypi-pyrate_limiter package.
+Group: Default
+
+%description license
+license components for the pypi-pyrate_limiter package.
+
 
 %package python
 Summary: python components for the pypi-pyrate_limiter package.
@@ -44,10 +51,10 @@ python3 components for the pypi-pyrate_limiter package.
 
 
 %prep
-%setup -q -n pyrate_limiter-2.10.0
-cd %{_builddir}/pyrate_limiter-2.10.0
+%setup -q -n pyrate_limiter-3.1.0
+cd %{_builddir}/pyrate_limiter-3.1.0
 pushd ..
-cp -a pyrate_limiter-2.10.0 buildavx2
+cp -a pyrate_limiter-3.1.0 buildavx2
 popd
 
 %build
@@ -55,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686612636
+export SOURCE_DATE_EPOCH=1693253535
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -79,6 +86,8 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-pyrate_limiter
+cp %{_builddir}/pyrate_limiter-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-pyrate_limiter/dc6e6fb22a1570634c45a1b4920307f7aa616778 || :
 pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -95,6 +104,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-pyrate_limiter/dc6e6fb22a1570634c45a1b4920307f7aa616778
 
 %files python
 %defattr(-,root,root,-)
