@@ -1,5 +1,5 @@
 PKG_NAME := pypi-pyrate_limiter
-URL = https://files.pythonhosted.org/packages/43/9e/9d431d57e54715844234cbff8438ef762c88279a40d5249fd45845354a97/pyrate_limiter-3.2.0.tar.gz
+URL = https://files.pythonhosted.org/packages/8d/79/64a12cd4526f3272a11dd338a35c54e91e7096163b898f1d64d4f8f63e4a/pyrate_limiter-3.2.1.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
