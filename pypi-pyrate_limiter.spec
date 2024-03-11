@@ -6,10 +6,10 @@
 # autospec commit: 1ab68ca
 #
 Name     : pypi-pyrate_limiter
-Version  : 3.3.0
-Release  : 9
-URL      : https://files.pythonhosted.org/packages/8b/b3/aca2999c7253b96354d84574ab076ef4c149054f0f7bdc703aa696f11088/pyrate_limiter-3.3.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/8b/b3/aca2999c7253b96354d84574ab076ef4c149054f0f7bdc703aa696f11088/pyrate_limiter-3.3.0.tar.gz
+Version  : 3.4.0
+Release  : 10
+URL      : https://files.pythonhosted.org/packages/9e/df/c5f59ea7557acd6d868f96a6e7faa155994a8ff26e8c325c8daaa48c466f/pyrate_limiter-3.4.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/9e/df/c5f59ea7557acd6d868f96a6e7faa155994a8ff26e8c325c8daaa48c466f/pyrate_limiter-3.4.0.tar.gz
 Summary  : Python Rate-Limiter using Leaky-Bucket Algorithm
 Group    : Development/Tools
 License  : MIT
@@ -53,10 +53,10 @@ python3 components for the pypi-pyrate_limiter package.
 
 
 %prep
-%setup -q -n pyrate_limiter-3.3.0
-cd %{_builddir}/pyrate_limiter-3.3.0
+%setup -q -n pyrate_limiter-3.4.0
+cd %{_builddir}/pyrate_limiter-3.4.0
 pushd ..
-cp -a pyrate_limiter-3.3.0 buildavx2
+cp -a pyrate_limiter-3.4.0 buildavx2
 popd
 
 %build
@@ -64,7 +64,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1710173128
+export SOURCE_DATE_EPOCH=1710182103
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
