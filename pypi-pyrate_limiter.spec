@@ -7,7 +7,7 @@
 #
 Name     : pypi-pyrate_limiter
 Version  : 3.7.0
-Release  : 16
+Release  : 17
 URL      : https://files.pythonhosted.org/packages/3e/b6/a812da6cbcb3861c4389fc42114a77d3628d2a9948fbc5f308c35fecaed0/pyrate_limiter-3.7.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/3e/b6/a812da6cbcb3861c4389fc42114a77d3628d2a9948fbc5f308c35fecaed0/pyrate_limiter-3.7.0.tar.gz
 Summary  : Python Rate-Limiter using Leaky-Bucket Algorithm
